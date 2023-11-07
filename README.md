@@ -12,6 +12,7 @@ This Terraform code `main.tf` file creates a basic AWS infrastructure setup for 
 - **IAM Role**: An IAM role associated with the EC2 instances.
 
 - **ALB (Application Load Balancer)**: An Application Load Balancer configured with a Target Group.
+- **Security Group** one security group and port 80 (http) 443(https) for web app, port 22 open with specified IP for SSH the server. 
 
 - **Flask Python Application**: A simple Flask Python application that serves a "Welcome To QuantSpark Arun Interview Project!" message. The application is launched on the EC2 instances using user data.
 
@@ -34,18 +35,29 @@ This Terraform code is contained in a single file and includes all the necessary
 4. Run the following Terraform commands:
 
 `terraform init`
+
 `terraform plan`
+
 `terraform apply`
 
+5. To check the current status of the infra use below command
 
-5. Review the output, which will include the DNS name of the Application Load Balancer (ALB). You can use this DNS name to access the web application after the deployment.
+   `terraform show`
+   
+6. Review the output, which will include the DNS name of the Application Load Balancer (ALB). You can use this DNS name to access the web application after the deployment.
+   
 Note: may be need to wait for 60 - 120 seconds for instance become healthy
 
+7. Delete the entire setup use below command
+   
+   `terraform destroy`
+   
 ## Updating the Application
 
 To update the web application, you can modify the user data section in the Terraform code. This allows you to change the application logic or deploy a different application using Terraform apply.
 
 Feel free to customize this Terraform code according to your specific requirements.
+
 
 ---
 
@@ -54,3 +66,4 @@ Feel free to customize this Terraform code according to your specific requiremen
 EKS not used in this because of cost optimization 
 The current terraform EC2 also deployed in public because of reduce NAT gateway cost
 Cloud watch not enable to reduce Cost
+one more alternative option we can try single instance with microK8S so application we can run HA but instance in single point of failure ( to reduce the cost option not for the production setup)
