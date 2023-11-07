@@ -64,6 +64,9 @@ Feel free to customize this Terraform code according to your specific requiremen
 **Note**: This is a simple example intended for learning and testing. For a production-ready setup, consider implementing best practices for security, scalability, and reliability. also for production heighly recommanded AWS EKS so we can explore more features like cluster autoscalling, HA in application, GitOps in place etc. 
 
 EKS not used in this because of cost optimization 
+
 The current terraform EC2 also deployed in public because of reduce NAT gateway cost
+
 Cloud watch not enable to reduce Cost
+
 one more alternative option we can try single instance with microK8S so application we can run HA but instance in single point of failure ( to reduce the cost option not for the production setup)
